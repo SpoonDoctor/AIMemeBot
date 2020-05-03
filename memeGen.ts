@@ -63,13 +63,7 @@ export async function getAIMeme(imgId: ImageID): Promise<string> {
     const __tok: any = dataGetResponse.data.__tok;
     
 
-    console.log('data: ', dataGetResponse.data);
-    console.log('cookies: ', cookies)
-    console.log('__tok: ', __tok)
-
     let getMemeTextCookieString: string = parseCookies(cookies);
-
-    console.log('cookie string: ', getMemeTextCookieString);
 
     const form = new FormData();
     form.append('meme_id', imgId);
@@ -78,7 +72,6 @@ export async function getAIMeme(imgId: ImageID): Promise<string> {
     form.append('__cookie_enabled', '1');
 
     const formHeaders = form.getHeaders();
-    console.log('HEADERS', formHeaders);
 
     const getMemeTextOptions: AxiosOptions = {
         method: "POST",
@@ -100,8 +93,6 @@ export async function getAIMeme(imgId: ImageID): Promise<string> {
         console.log(error);
     });
 
-    console.log(memeTextGetResponse);
-
     const memeText: any = memeTextGetResponse.data.texts;
 
     const textBoxes = [];
@@ -117,8 +108,6 @@ export async function getAIMeme(imgId: ImageID): Promise<string> {
         boxes: textBoxes
     });
 
-    console.log("query: ", queryParams);
-
     const captionImageOptions: AxiosOptions = {
         method: 'POST',
         baseURL: 'https://api.imgflip.com',
@@ -132,22 +121,18 @@ export async function getAIMeme(imgId: ImageID): Promise<string> {
         console.log(error);
     });
 
-    console.log(captionImageResponse);
-
     return captionImageResponse.data.data.url;
 }
 
 function parseCookies(cookies: any): string {
     let cookieString: string = '';
     let addSpace: boolean = false;
-    console.log("COOOOOOOKIES: ", cookies);
     for(let cookie of cookies){
         if(addSpace){
             cookieString += ' ';
         }
         addSpace = true;
         const endOfCookie: number = cookie.indexOf(';');
-        console.log('index: ', endOfCookie);
         const usefulBit: string = cookie.substring(0, endOfCookie+1);
         cookieString += usefulBit
     }
