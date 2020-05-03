@@ -7,9 +7,8 @@ exports.router = router;
 router.use(express.urlencoded({ extended: false }));
 router.use(express.json());
 router.post('/', function (req, res) {
-    console.log(req.body);
     var messageText = req.body.text;
-    if (messageText.indexOf('/meme') !== -1 && req.body.sender_type === "user") {
+    if (req.body && messageText.indexOf('/meme') !== -1 && req.body.sender_type === "user") {
         commandHandler_1.handleCommand(messageText);
     }
     res.sendStatus(200);

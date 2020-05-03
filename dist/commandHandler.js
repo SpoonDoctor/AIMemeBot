@@ -55,20 +55,18 @@ function handleCommand(messageText) {
                     IDKeys = Object.keys(memeGen_1.ImageID).filter(function (x) { return !(parseInt(x) >= 0); });
                     for (_i = 0, IDKeys_1 = IDKeys; _i < IDKeys_1.length; _i++) {
                         templateType = IDKeys_1[_i];
-                        groupMeText += (templateType + ' ');
+                        groupMeText += (templateType + '  ');
                     }
                     return [3 /*break*/, 7];
                 case 1:
                     if (!(messageText.indexOf('-type') !== -1)) return [3 /*break*/, 5];
                     typeIndex = messageText.indexOf('-type');
                     templateType = messageText.substring(typeIndex + '-type '.length).toUpperCase();
-                    console.log('templateType', templateType);
                     templateId = memeGen_1.ImageID[templateType];
                     if (!templateId) return [3 /*break*/, 3];
                     return [4 /*yield*/, memeGen_1.getAIMeme(templateId)];
                 case 2:
                     groupMeText = _a.sent();
-                    console.log("TYPEOF: ", groupMeText);
                     return [3 /*break*/, 4];
                 case 3:
                     groupMeText = 'Bad template name';
@@ -95,7 +93,6 @@ function handleCommand(messageText) {
                         })];
                 case 8:
                     _a.sent();
-                    console.log(groupmeMessageContent);
                     _a.label = 9;
                 case 9: return [2 /*return*/];
             }

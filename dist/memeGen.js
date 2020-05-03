@@ -54,22 +54,54 @@ var FormData = require('form-data'); //Gotta be a better way to do this
 var qs = require("qs");
 var ImageID;
 (function (ImageID) {
-    ImageID[ImageID["DISTRACTEDBOYFRIEND"] = 112126428] = "DISTRACTEDBOYFRIEND";
-    ImageID[ImageID["BATMANSLAPPINGROBIN"] = 438680] = "BATMANSLAPPINGROBIN";
+    ImageID[ImageID["DISTRACTED"] = 112126428] = "DISTRACTED";
+    ImageID[ImageID["BATMANSLAP"] = 438680] = "BATMANSLAP";
     ImageID[ImageID["TWOBUTTONS"] = 87743020] = "TWOBUTTONS";
-    ImageID[ImageID["DRAKEHOTLINEBLING"] = 181913649] = "DRAKEHOTLINEBLING";
-    ImageID[ImageID["ONEDOESNOTSIMPLY"] = 61579] = "ONEDOESNOTSIMPLY";
-    ImageID[ImageID["MOCKINGSPONGEBOB"] = 102156234] = "MOCKINGSPONGEBOB";
-    ImageID[ImageID["EXPANDINGBRAIN"] = 93895088] = "EXPANDINGBRAIN";
+    ImageID[ImageID["DRAKE"] = 181913649] = "DRAKE";
+    ImageID[ImageID["ONEDOESNOT"] = 61579] = "ONEDOESNOT";
+    ImageID[ImageID["MOCKINGSB"] = 102156234] = "MOCKINGSB";
+    ImageID[ImageID["EXPANDING"] = 93895088] = "EXPANDING";
     ImageID[ImageID["CHANGEMYMIND"] = 129242436] = "CHANGEMYMIND";
-    ImageID[ImageID["LEFTEXIT12OFFRAMP"] = 124822590] = "LEFTEXIT12OFFRAMP";
-    ImageID[ImageID["ANCIENTALIENS"] = 101470] = "ANCIENTALIENS";
-    ImageID[ImageID["ROLLSAFETHINKABOUTIT"] = 89370399] = "ROLLSAFETHINKABOUTIT";
+    ImageID[ImageID["OFFRAMP"] = 124822590] = "OFFRAMP";
+    ImageID[ImageID["ALIENS"] = 101470] = "ALIENS";
+    ImageID[ImageID["THINKABOUTIT"] = 89370399] = "THINKABOUTIT";
     ImageID[ImageID["FUTURAMAFRY"] = 61520] = "FUTURAMAFRY";
-    ImageID[ImageID["BOARDROOMMEETING"] = 1035805] = "BOARDROOMMEETING";
-    ImageID[ImageID["WAITINGSKELETON"] = 4087833] = "WAITINGSKELETON";
+    ImageID[ImageID["BOARDMEETING"] = 1035805] = "BOARDMEETING";
+    ImageID[ImageID["SKELETON"] = 4087833] = "SKELETON";
     ImageID[ImageID["XEVERYWHERE"] = 91538330] = "XEVERYWHERE";
     ImageID[ImageID["WOMANYELLINGATCAT"] = 188390779] = "WOMANYELLINGATCAT";
+    ImageID[ImageID["NUTBUTT"] = 119139145] = "NUTBUTT";
+    ImageID[ImageID["INTERESTINGMAN"] = 61532] = "INTERESTINGMAN";
+    ImageID[ImageID["CHEERS"] = 5496396] = "CHEERS";
+    ImageID[ImageID["SURPRISEDPIKA"] = 155067746] = "SURPRISEDPIKA";
+    ImageID[ImageID["PIGEON"] = 10077763] = "PIGEON";
+    ImageID[ImageID["BALLOON"] = 131087935] = "BALLOON";
+    ImageID[ImageID["SEAGULL"] = 114585149] = "SEAGULL";
+    ImageID[ImageID["DOGE"] = 8072285] = "DOGE";
+    ImageID[ImageID["DISASTER"] = 97984] = "DISASTER";
+    ImageID[ImageID["THEROCK"] = 21735] = "THEROCK";
+    ImageID[ImageID["YALLGOTANY"] = 124055727] = "YALLGOTANY";
+    ImageID[ImageID["HIDETHEPAIN"] = 27813981] = "HIDETHEPAIN";
+    ImageID[ImageID["OPRAH"] = 28251713] = "OPRAH";
+    ImageID[ImageID["ARGUMENT"] = 134797956] = "ARGUMENT";
+    ImageID[ImageID["SCROLLTRUTH"] = 123999232] = "SCROLLTRUTH";
+    ImageID[ImageID["BEGREAT"] = 563423] = "BEGREAT";
+    ImageID[ImageID["THIRDWORLDSKEPTIC"] = 101288] = "THIRDWORLDSKEPTIC";
+    ImageID[ImageID["UNO"] = 217743513] = "UNO";
+    ImageID[ImageID["FINDINGNEVERLAND"] = 6235864] = "FINDINGNEVERLAND";
+    ImageID[ImageID["TRUMP"] = 91545132] = "TRUMP";
+    ImageID[ImageID["TUXEDOPOOH"] = 178591752] = "TUXEDOPOOH";
+    ImageID[ImageID["SMUGSPONGEBOB"] = 101511] = "SMUGSPONGEBOB";
+    ImageID[ImageID["YODA"] = 14371066] = "YODA";
+    ImageID[ImageID["GRANDMA"] = 61556] = "GRANDMA";
+    ImageID[ImageID["TOM"] = 175540452] = "TOM";
+    ImageID[ImageID["THIRDWORLDSUCCESS"] = 101287] = "THIRDWORLDSUCCESS";
+    ImageID[ImageID["HANDSHAKE"] = 135256802] = "HANDSHAKE";
+    ImageID[ImageID["EVILKERMIT"] = 84341851] = "EVILKERMIT";
+    ImageID[ImageID["MARKEDSAFE"] = 161865971] = "MARKEDSAFE";
+    ImageID[ImageID["WHOKILLED"] = 135678846] = "WHOKILLED";
+    ImageID[ImageID["SWALLOW"] = 132769734] = "SWALLOW";
+    ImageID[ImageID["HEADOUT"] = 196652226] = "HEADOUT";
 })(ImageID = exports.ImageID || (exports.ImageID = {}));
 var httpsAgent = new https.Agent({
     rejectUnauthorized: false,
@@ -102,18 +134,13 @@ function getAIMeme(imgId) {
                     dataGetResponse = _a.sent();
                     cookies = dataGetResponse.headers["set-cookie"];
                     __tok = dataGetResponse.data.__tok;
-                    console.log('data: ', dataGetResponse.data);
-                    console.log('cookies: ', cookies);
-                    console.log('__tok: ', __tok);
                     getMemeTextCookieString = parseCookies(cookies);
-                    console.log('cookie string: ', getMemeTextCookieString);
                     form = new FormData();
                     form.append('meme_id', imgId);
                     form.append('init_text', '');
                     form.append('__tok', __tok);
                     form.append('__cookie_enabled', '1');
                     formHeaders = form.getHeaders();
-                    console.log('HEADERS', formHeaders);
                     getMemeTextOptions = {
                         method: "POST",
                         baseURL: "https://imgflip.com",
@@ -128,7 +155,6 @@ function getAIMeme(imgId) {
                         })];
                 case 2:
                     memeTextGetResponse = _a.sent();
-                    console.log(memeTextGetResponse);
                     memeText = memeTextGetResponse.data.texts;
                     textBoxes = [];
                     for (_i = 0, memeText_1 = memeText; _i < memeText_1.length; _i++) {
@@ -141,7 +167,6 @@ function getAIMeme(imgId) {
                         password: 'thisismypassword1',
                         boxes: textBoxes
                     });
-                    console.log("query: ", queryParams);
                     captionImageOptions = {
                         method: 'POST',
                         baseURL: 'https://api.imgflip.com',
@@ -155,7 +180,6 @@ function getAIMeme(imgId) {
                         })];
                 case 3:
                     captionImageResponse = _a.sent();
-                    console.log(captionImageResponse);
                     return [2 /*return*/, captionImageResponse.data.data.url];
             }
         });
@@ -165,7 +189,6 @@ exports.getAIMeme = getAIMeme;
 function parseCookies(cookies) {
     var cookieString = '';
     var addSpace = false;
-    console.log("COOOOOOOKIES: ", cookies);
     for (var _i = 0, cookies_1 = cookies; _i < cookies_1.length; _i++) {
         var cookie = cookies_1[_i];
         if (addSpace) {
@@ -173,7 +196,6 @@ function parseCookies(cookies) {
         }
         addSpace = true;
         var endOfCookie = cookie.indexOf(';');
-        console.log('index: ', endOfCookie);
         var usefulBit = cookie.substring(0, endOfCookie + 1);
         cookieString += usefulBit;
     }
