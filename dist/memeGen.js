@@ -46,22 +46,12 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
-    result["default"] = mod;
-    return result;
-};
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-var https = __importStar(require("https"));
-var fs = __importStar(require("fs"));
-var axios_1 = __importDefault(require("axios"));
+var https = require("https");
+var fs = require("fs");
+var axios_1 = require("axios");
 var FormData = require('form-data'); //Gotta be a better way to do this
-var qs = __importStar(require("qs"));
+var qs = require("qs");
 var ImageID;
 (function (ImageID) {
     ImageID[ImageID["DISTRACTEDBOYFRIEND"] = 112126428] = "DISTRACTEDBOYFRIEND";
