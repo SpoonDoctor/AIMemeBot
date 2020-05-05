@@ -74,7 +74,7 @@ var ImageID;
     ImageID[ImageID["INTERESTINGMAN"] = 61532] = "INTERESTINGMAN";
     ImageID[ImageID["CHEERS"] = 5496396] = "CHEERS";
     ImageID[ImageID["SURPRISEDPIKA"] = 155067746] = "SURPRISEDPIKA";
-    ImageID[ImageID["PIGEON"] = 10077763] = "PIGEON";
+    ImageID[ImageID["PIGEON"] = 100777631] = "PIGEON";
     ImageID[ImageID["BALLOON"] = 131087935] = "BALLOON";
     ImageID[ImageID["SEAGULL"] = 114585149] = "SEAGULL";
     ImageID[ImageID["DOGE"] = 8072285] = "DOGE";
