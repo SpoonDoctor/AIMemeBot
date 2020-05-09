@@ -82,7 +82,6 @@ var ImageID;
     ImageID[ImageID["THEROCK"] = 21735] = "THEROCK";
     ImageID[ImageID["YALLGOTANY"] = 124055727] = "YALLGOTANY";
     ImageID[ImageID["HIDETHEPAIN"] = 27813981] = "HIDETHEPAIN";
-    ImageID[ImageID["OPRAH"] = 28251713] = "OPRAH";
     ImageID[ImageID["ARGUMENT"] = 134797956] = "ARGUMENT";
     ImageID[ImageID["SCROLLTRUTH"] = 123999232] = "SCROLLTRUTH";
     ImageID[ImageID["BEGREAT"] = 563423] = "BEGREAT";
