@@ -1,5 +1,5 @@
 import * as express from 'express';
-import {handleCommand} from '../commandHandler';
+import {handleCommand, handleSus} from '../commandHandler';
 
 const router = express.Router();
 
@@ -10,6 +10,8 @@ router.post('/', (req: express.Request, res: express.Response) => {
     const messageText: string = req.body.text;
     if(req.body && messageText.indexOf('/meme') !== -1 && req.body.sender_type === "user"){
         handleCommand(messageText);
+    } else if(req.body && messageText.indexOf('/amongass') !== -1){
+        handleSus();
     }
     res.sendStatus(200);
 });
