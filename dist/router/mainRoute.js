@@ -11,7 +11,7 @@ router.post('/', function (req, res) {
     if (req.body && messageText.indexOf('/meme') !== -1 && req.body.sender_type === "user") {
         commandHandler_1.handleCommand(messageText);
     }
-    else if (req.body && ((messageText.indexOf('/amongass') !== -1) || (messageText.indexOf('sus') !== -1))) {
+    else if (req.body && ((messageText.indexOf('/amongass') !== -1) || (messageText.toUpperCase().indexOf('SUS') !== -1))) {
         commandHandler_1.handleSus();
     }
     res.sendStatus(200);
