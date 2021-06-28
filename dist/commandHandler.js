@@ -111,7 +111,7 @@ function handleCommand(messageText) {
                     }
                     return [3 /*break*/, 7];
                 case 1:
-                    if (!(messageText.length < 6)) return [3 /*break*/, 5];
+                    if (!(messageText.length > 6)) return [3 /*break*/, 5];
                     templateType = messageText.substring('/meme '.length).trim().toUpperCase();
                     templateId = memeGen_1.ImageID[templateType];
                     if (!templateId) return [3 /*break*/, 3];

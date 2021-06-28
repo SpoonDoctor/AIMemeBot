@@ -68,7 +68,7 @@ export async function handleCommand(messageText: string): Promise<void>{
             groupMeText += (templateType + '  ');
         }
     }
-    else if(messageText.length < 6){
+    else if(messageText.length > 6){
         const templateType: string = messageText.substring('/meme '.length).trim().toUpperCase();
         const templateId: ImageID = ImageID[templateType as keyof typeof ImageID];
         if(templateId){
