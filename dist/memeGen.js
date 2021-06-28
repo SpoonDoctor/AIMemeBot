@@ -47,7 +47,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getAIMeme = exports.ImageID = void 0;
 var https = require("https");
 var fs = require("fs");
 var axios_1 = require("axios");
@@ -76,14 +75,12 @@ var ImageID;
     ImageID[ImageID["CHEERS"] = 5496396] = "CHEERS";
     ImageID[ImageID["SURPRISEDPIKA"] = 155067746] = "SURPRISEDPIKA";
     ImageID[ImageID["PIGEON"] = 100777631] = "PIGEON";
-    ImageID[ImageID["BALLOON"] = 131087935] = "BALLOON";
     ImageID[ImageID["SEAGULL"] = 114585149] = "SEAGULL";
     ImageID[ImageID["DOGE"] = 8072285] = "DOGE";
     ImageID[ImageID["DISASTER"] = 97984] = "DISASTER";
     ImageID[ImageID["THEROCK"] = 21735] = "THEROCK";
     ImageID[ImageID["YALLGOTANY"] = 124055727] = "YALLGOTANY";
     ImageID[ImageID["HIDETHEPAIN"] = 27813981] = "HIDETHEPAIN";
-    ImageID[ImageID["ARGUMENT"] = 134797956] = "ARGUMENT";
     ImageID[ImageID["SCROLLTRUTH"] = 123999232] = "SCROLLTRUTH";
     ImageID[ImageID["BEGREAT"] = 563423] = "BEGREAT";
     ImageID[ImageID["THIRDWORLDSKEPTIC"] = 101288] = "THIRDWORLDSKEPTIC";

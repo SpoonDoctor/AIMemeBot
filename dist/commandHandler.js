@@ -36,7 +36,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.handleCommand = exports.handleSus = void 0;
 var memeGen_1 = require("./memeGen");
 var axios_1 = require("axios");
 function randomEnumKey() {
@@ -52,7 +51,18 @@ var susLinks = [
     "https://ih1.redbubble.net/image.1795050090.1119/st,small,507x507-pad,600x600,f8f8f8.jpg", "https://img.youtube.com/vi/vUxyYHuZiCQ/0.jpg",
     "https://i.redd.it/psxbkj0ywpn51.png", "https://ih1.redbubble.net/image.1843357763.9925/st,small,507x507-pad,600x600,f8f8f8.jpg",
     "https://i.redd.it/o9gfozbq5ts51.jpg", "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/634ac9d5-dc0f-44d3-af77-1aeac3fadfc8/def5apc-7d3c6d6f-6d0d-48e1-8138-4b3723773c13.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvNjM0YWM5ZDUtZGMwZi00NGQzLWFmNzctMWFlYWMzZmFkZmM4XC9kZWY1YXBjLTdkM2M2ZDZmLTZkMGQtNDhlMS04MTM4LTRiMzcyMzc3M2MxMy5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.4rMI9dF2VTaMFiRu6fP-vemNII2vYQGP2KU32vmaGsE",
-    "https://i.redd.it/kzarl4exopo51.jpg", "https://i.redd.it/icv7l35jplm51.jpg"
+    "https://i.redd.it/kzarl4exopo51.jpg", "https://i.redd.it/icv7l35jplm51.jpg", "https://i.redd.it/jbbyn8aiw7761.jpg", "https://i.ytimg.com/vi/KVjIzWxWGkA/maxresdefault.jpg", "https://pbs.twimg.com/media/EiWRNF1UcAIPHYb.jpg",
+    "https://i.ytimg.com/vi/kv886F6_-2k/maxresdefault.jpg", "https://art.ngfiles.com/images/1555000/1555156_elmont_among-ass.png?f1608686229", "https://pbs.twimg.com/media/EmuFdbZWEAAczdl.jpg",
+    "https://art.ngfiles.com/images/1817000/1817519_sploogums_among-ass.png?f1620879708", "https://gingamegun.com/wp-content/uploads/2021/04/Among-Ass-2-Butt-Warfare-Free-Download-PC-Game-348x215.jpg",
+    "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/cefcc4de-817d-4e55-a4a8-3d83fa458187/de5x538-2ecf7dcf-9f23-47d1-9b48-332d0b4ebcf4.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2NlZmNjNGRlLTgxN2QtNGU1NS1hNGE4LTNkODNmYTQ1ODE4N1wvZGU1eDUzOC0yZWNmN2RjZi05ZjIzLTQ3ZDEtOWI0OC0zMzJkMGI0ZWJjZjQucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.y4T1WAXZZgywwZ92XC2rLEStHD7weLodNrcz8djVJFQ",
+    "https://preview.redd.it/j30evletlgn51.jpg?auto=webp&s=9dd53eb09737529caa67a9f92d29cb71d2316220", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFnQkFJ1z3UwGR2Czjm7ImxrIwhOMLy3i-gQ&usqp=CAU",
+    "https://i1.wp.com/metronxme.com/wp-content/uploads/2021/04/42926-among-us-twerk-thursday-baby-got-sus.jpg", "https://i.ytimg.com/vi/Stnjr-PP9mY/maxresdefault.jpg", "https://i.ytimg.com/vi/6n9dM6mI_jg/maxresdefault.jpg",
+    "https://pbs.twimg.com/media/EopTzqKXYAEJLe3.jpg", "https://cdn.drawception.com/drawings/785422/QPHRv70SRD.png", "https://64.media.tumblr.com/85b55fb5b1041a5d3040cc24d4fb1bf4/1934684930fb2613-82/s2048x3072/c91176d4c67e442688c557e21cd516e18569b8f3.png",
+    "https://i.ytimg.com/vi/imsH069ZEjo/maxresdefault.jpg", "https://i.redd.it/ndvcmw54ykm51.jpg",
+    "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/d46a50a6-0230-4b27-aad8-be769ae7001b/de61ul1-75c2fe2f-7128-44f2-b9af-9ecb22297a40.png/v1/fill/w_1280,h_1280,strp/really_among_us_by_no1hereignoreme_de61ul1-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcL2Q0NmE1MGE2LTAyMzAtNGIyNy1hYWQ4LWJlNzY5YWU3MDAxYlwvZGU2MXVsMS03NWMyZmUyZi03MTI4LTQ0ZjItYjlhZi05ZWNiMjIyOTdhNDAucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.yMfTC5SDyCWZrGxVrJwH-1Ysa_9p-y1ju7_IqfD9NmM",
+    "https://i.ytimg.com/vi/lAqVCcDRt70/maxresdefault.jpg",
+    "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/61242372-ef7a-4454-ab3a-2bb6255d0f54/de5drhj-7f69913d-2795-4267-8a04-0452d66923cb.png/v1/fill/w_894,h_894,strp/___among_us_faanart____by_fixxi_flowers_de5drhj-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTAwMCIsInBhdGgiOiJcL2ZcLzYxMjQyMzcyLWVmN2EtNDQ1NC1hYjNhLTJiYjYyNTVkMGY1NFwvZGU1ZHJoai03ZjY5OTEzZC0yNzk1LTQyNjctOGEwNC0wNDUyZDY2OTIzY2IucG5nIiwid2lkdGgiOiI8PTEwMDAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.Hm6QivmirSaZzANkw4fMD6TgvOpnPVnCOVbfVGL9vlo",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjzBvMROvlk776qj9S-qSf9GKjTN72MbgCxA&usqp=CAU", "https://preview.redd.it/pluaua8ilrr51.jpg?auto=webp&s=978fee04db24dcec7894bbcde3b2e7202bfe1e13", "https://pbs.twimg.com/media/EhKwd9zWkAQg78-.jpg:large"
 ];
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
@@ -87,7 +97,7 @@ function handleSus() {
 exports.handleSus = handleSus;
 function handleCommand(messageText) {
     return __awaiter(this, void 0, void 0, function () {
-        var groupMeText, IDKeys, _i, IDKeys_1, templateType, typeIndex, templateType, templateId, groupmeMessageContent, gmReqOptions;
+        var groupMeText, IDKeys, _i, IDKeys_1, templateType, templateType, templateId, groupmeMessageContent, gmReqOptions;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -101,9 +111,8 @@ function handleCommand(messageText) {
                     }
                     return [3 /*break*/, 7];
                 case 1:
-                    if (!(messageText.indexOf('-type') !== -1)) return [3 /*break*/, 5];
-                    typeIndex = messageText.indexOf('-type');
-                    templateType = messageText.substring(typeIndex + '-type '.length).toUpperCase();
+                    if (!(messageText.length < 6)) return [3 /*break*/, 5];
+                    templateType = messageText.substring('/meme '.length).trim().toUpperCase();
                     templateId = memeGen_1.ImageID[templateType];
                     if (!templateId) return [3 /*break*/, 3];
                     return [4 /*yield*/, memeGen_1.getAIMeme(templateId)];
