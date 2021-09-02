@@ -46,10 +46,15 @@ export async function handleAcronym(messageText: string): Promise<void>{
         groupmeText = "You forgot the acronym, bonehead."
     }
 
+    const groupmeMessageContent = {
+        'bot_id': 'e297c5ad72d1e0d97c3fd915d2',
+        'text': groupmeText
+    };
+
     const gmReqOptions: GMReqOptions = {
         method: 'POST',
         baseURL: 'https://api.groupme.com/v3/bots/post',
-        data: groupmeText,
+        data: groupmeMessageContent,
         headers: {"content-type": "application/json"}
     }
 
@@ -64,7 +69,7 @@ function getRandomInt(min: number, max: number): number{
 
 export async function handleSus(): Promise<void>{
     const sus: string = susLinks[getRandomInt(0,susLinks.length)]
-    let groupmeMessageContent = {
+    const groupmeMessageContent = {
         'bot_id': 'e297c5ad72d1e0d97c3fd915d2',
         'text': sus
     };
@@ -103,7 +108,7 @@ export async function handleCommand(messageText: string): Promise<void>{
         groupMeText = await getAIMeme(ImageID[randomEnumKey() as keyof typeof ImageID]);
     }
     if(groupMeText !== ''){
-        let groupmeMessageContent = {
+        const groupmeMessageContent = {
             'bot_id': 'e297c5ad72d1e0d97c3fd915d2',
             'text': groupMeText
         };

@@ -68,7 +68,7 @@ var susLinks = [
 ];
 function handleAcronym(messageText) {
     return __awaiter(this, void 0, void 0, function () {
-        var acronymText, groupmeText, gmReqOptions;
+        var acronymText, groupmeText, groupmeMessageContent, gmReqOptions;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -80,10 +80,14 @@ function handleAcronym(messageText) {
                     else if (acronymText.length == 0) {
                         groupmeText = "You forgot the acronym, bonehead.";
                     }
+                    groupmeMessageContent = {
+                        'bot_id': 'e297c5ad72d1e0d97c3fd915d2',
+                        'text': groupmeText
+                    };
                     gmReqOptions = {
                         method: 'POST',
                         baseURL: 'https://api.groupme.com/v3/bots/post',
-                        data: groupmeText,
+                        data: groupmeMessageContent,
                         headers: { "content-type": "application/json" }
                     };
                     return [4 /*yield*/, axios_1.default.request(gmReqOptions).catch(function (error) {
