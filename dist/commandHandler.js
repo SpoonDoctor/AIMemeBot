@@ -77,6 +77,9 @@ function handleAcronym(messageText) {
                     if (acronymText.length < 15) {
                         groupmeText = acronymresolver(acronymText);
                     }
+                    else if (acronymText.length == 0) {
+                        groupmeText = "You forgot the acronym, bonehead.";
+                    }
                     gmReqOptions = {
                         method: 'POST',
                         baseURL: 'https://api.groupme.com/v3/bots/post',

@@ -42,6 +42,8 @@ export async function handleAcronym(messageText: string): Promise<void>{
     let groupmeText: string = "Acronym is too long. Must be under 15 chars."
     if(acronymText.length < 15){
         groupmeText = acronymresolver(acronymText);
+    } else if(acronymText.length == 0){
+        groupmeText = "You forgot the acronym, bonehead."
     }
 
     const gmReqOptions: GMReqOptions = {
