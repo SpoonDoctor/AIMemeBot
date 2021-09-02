@@ -46,21 +46,24 @@ export async function handleAcronym(messageText: string): Promise<void>{
         groupmeText = "You forgot the acronym, bonehead."
     }
 
-    const groupmeMessageContent = {
-        'bot_id': 'e297c5ad72d1e0d97c3fd915d2',
-        'text': groupmeText
-    };
+    if(groupmeText.trim() !== ''){
 
-    const gmReqOptions: GMReqOptions = {
-        method: 'POST',
-        baseURL: 'https://api.groupme.com/v3/bots/post',
-        data: groupmeMessageContent,
-        headers: {"content-type": "application/json"}
+        const groupmeMessageContent = {
+            'bot_id': 'e297c5ad72d1e0d97c3fd915d2',
+            'text': groupmeText
+        };
+
+        const gmReqOptions: GMReqOptions = {
+            method: 'POST',
+            baseURL: 'https://api.groupme.com/v3/bots/post',
+            data: groupmeMessageContent,
+            headers: {"content-type": "application/json"}
+        }
+
+        await axios.request(gmReqOptions).catch((error: any) => {
+            console.log(error);
+        });
     }
-
-    await axios.request(gmReqOptions).catch((error: any) => {
-        console.log(error);
-    });
 }
 
 function getRandomInt(min: number, max: number): number{
