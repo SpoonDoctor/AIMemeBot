@@ -1,5 +1,6 @@
 import {ImageID, getAIMeme} from './memeGen';
 import {default as axios} from 'axios';
+import acronymresolver = require("acronymresolver");
 
 interface GMReqOptions {
     method: 'POST';
@@ -35,6 +36,25 @@ const susLinks: string[] = [
     "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/61242372-ef7a-4454-ab3a-2bb6255d0f54/de5drhj-7f69913d-2795-4267-8a04-0452d66923cb.png/v1/fill/w_894,h_894,strp/___among_us_faanart____by_fixxi_flowers_de5drhj-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTAwMCIsInBhdGgiOiJcL2ZcLzYxMjQyMzcyLWVmN2EtNDQ1NC1hYjNhLTJiYjYyNTVkMGY1NFwvZGU1ZHJoai03ZjY5OTEzZC0yNzk1LTQyNjctOGEwNC0wNDUyZDY2OTIzY2IucG5nIiwid2lkdGgiOiI8PTEwMDAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.Hm6QivmirSaZzANkw4fMD6TgvOpnPVnCOVbfVGL9vlo",
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjzBvMROvlk776qj9S-qSf9GKjTN72MbgCxA&usqp=CAU", "https://preview.redd.it/pluaua8ilrr51.jpg?auto=webp&s=978fee04db24dcec7894bbcde3b2e7202bfe1e13", "https://pbs.twimg.com/media/EhKwd9zWkAQg78-.jpg"
 ]
+
+export async function handleAcronym(messageText: string): Promise<void>{
+    const acronymText: string = messageText.substring('/acronym '.length).trim().toUpperCase();
+    let groupmeText: string = "Acronym is too long. Must be under 15 chars."
+    if(acronymText.length < 15){
+        groupmeText = acronymresolver(acronymText);
+    }
+
+    const gmReqOptions: GMReqOptions = {
+        method: 'POST',
+        baseURL: 'https://api.groupme.com/v3/bots/post',
+        data: groupmeText,
+        headers: {"content-type": "application/json"}
+    }
+
+    await axios.request(gmReqOptions).catch((error: any) => {
+        console.log(error);
+    });
+}
 
 function getRandomInt(min: number, max: number): number{
     return Math.floor(Math.random() * (max - min)) + min;

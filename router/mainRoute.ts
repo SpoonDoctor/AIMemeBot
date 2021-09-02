@@ -1,5 +1,6 @@
 import * as express from 'express';
-import {handleCommand, handleSus} from '../commandHandler';
+import {handleCommand, handleSus, handleAcronym} from '../commandHandler';
+
 
 const router = express.Router();
 
@@ -12,6 +13,8 @@ router.post('/', (req: express.Request, res: express.Response) => {
         handleCommand(messageText);
     } else if(req.body && ((messageText.indexOf('/amongass') !== -1) || (messageText.toUpperCase().indexOf('SUS') !== -1))){
         handleSus();
+    } else if(req.body && messageText.indexOf('/acronym') !== -1 && req.body.sender_type === "user"){
+        handleAcronym(messageText);
     }
     res.sendStatus(200);
 });

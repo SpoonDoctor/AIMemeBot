@@ -36,8 +36,10 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.handleCommand = exports.handleSus = exports.handleAcronym = void 0;
 var memeGen_1 = require("./memeGen");
 var axios_1 = require("axios");
+var acronymresolver = require("acronymresolver");
 function randomEnumKey() {
     var IDKeys = Object.keys(memeGen_1.ImageID).filter(function (x) { return !(parseInt(x) >= 0); });
     var randomIndex = Math.floor(Math.random() * IDKeys.length);
@@ -64,6 +66,34 @@ var susLinks = [
     "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/61242372-ef7a-4454-ab3a-2bb6255d0f54/de5drhj-7f69913d-2795-4267-8a04-0452d66923cb.png/v1/fill/w_894,h_894,strp/___among_us_faanart____by_fixxi_flowers_de5drhj-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTAwMCIsInBhdGgiOiJcL2ZcLzYxMjQyMzcyLWVmN2EtNDQ1NC1hYjNhLTJiYjYyNTVkMGY1NFwvZGU1ZHJoai03ZjY5OTEzZC0yNzk1LTQyNjctOGEwNC0wNDUyZDY2OTIzY2IucG5nIiwid2lkdGgiOiI8PTEwMDAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.Hm6QivmirSaZzANkw4fMD6TgvOpnPVnCOVbfVGL9vlo",
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjzBvMROvlk776qj9S-qSf9GKjTN72MbgCxA&usqp=CAU", "https://preview.redd.it/pluaua8ilrr51.jpg?auto=webp&s=978fee04db24dcec7894bbcde3b2e7202bfe1e13", "https://pbs.twimg.com/media/EhKwd9zWkAQg78-.jpg"
 ];
+function handleAcronym(messageText) {
+    return __awaiter(this, void 0, void 0, function () {
+        var acronymText, groupmeText, gmReqOptions;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    acronymText = messageText.substring('/acronym '.length).trim().toUpperCase();
+                    groupmeText = "Acronym is too long. Must be under 15 chars.";
+                    if (acronymText.length < 15) {
+                        groupmeText = acronymresolver(acronymText);
+                    }
+                    gmReqOptions = {
+                        method: 'POST',
+                        baseURL: 'https://api.groupme.com/v3/bots/post',
+                        data: groupmeText,
+                        headers: { "content-type": "application/json" }
+                    };
+                    return [4 /*yield*/, axios_1.default.request(gmReqOptions).catch(function (error) {
+                            console.log(error);
+                        })];
+                case 1:
+                    _a.sent();
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+exports.handleAcronym = handleAcronym;
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
