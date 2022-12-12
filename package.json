@@ -13,7 +13,7 @@
     "acronymresolver": "^1.1.7",
     "axios": "^0.19.2",
     "body-parser": "^1.19.0",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "form-data": "^3.0.0",
     "qs": "^6.9.3",
     "typescript": "^3.8.3"
